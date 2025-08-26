@@ -9,7 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Professional Industrial Color Palette
+        brand: {
+          50: '#e8f2ff',
+          100: '#cfe4ff',
+          200: '#9fcaff',
+          300: '#6fafff',
+          400: '#3f95ff',
+          500: '#11497b',
+          600: '#0e3e6b',
+          700: '#0b325a',
+          800: '#082749',
+          900: '#051c38',
+        },
         primary: {
           50: '#f0f7ff',
           100: '#e0efff',

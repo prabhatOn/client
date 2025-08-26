@@ -94,9 +94,20 @@ export default function MainProduct() {  const [filteredProducts, setFilteredPro
       <motion.section 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="relative bg-white border-b border-neutral-200"
+        className="relative bg-white border-b border-neutral-200 overflow-hidden"
       >
-        <div className="container-custom py-16 lg:py-20">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-left bg-no-repeat"
+          style={{
+            backgroundImage: "url('/p-banner-1.jpg')",
+          }}
+        />
+        
+        {/* Overlay for text readability */}
+        {/* <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div> */}
+        
+        <div className="relative z-10 container-custom py-16 lg:py-20">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

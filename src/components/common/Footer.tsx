@@ -1,140 +1,150 @@
 "use client"
 
-import Link from "next/link"
-import { MapPin, Phone, Mail, ArrowUpRight, Send, MessageSquare } from "lucide-react"
-import { products } from "@/components/data/product"
+import React from "react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary-900 text-white">
-      <div className="container-custom py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+    <footer className="bg-[#11497b] text-white">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
           {/* Company Info */}
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">DP</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-heading font-bold">DP Enterprises</h3>
-                  <p className="text-secondary-400 text-sm">Industrial Solutions</p>
-                </div>
+          <div>
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-10 h-10 bg-brand-800 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">DP</span>
               </div>
-              <p className="text-secondary-300 text-sm leading-relaxed">
-                Authorized Channel Partner of Milton Roy, delivering precision industrial pumping solutions since 2007.
-              </p>
+              <div>
+                <h3 className="text-lg text-yellow-500 font-bold">DP Enterprises</h3>
+                <p className="text-sm text-gray-300">Industrial Solutions</p>
+              </div>
             </div>
-            <Link 
-              href="/contact" 
-              className="inline-flex items-center btn-primary group"
-            >
-              Send Inquiry 
-              <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              Authorized Channel Partner of Milton Roy, delivering precision industrial pumping solutions since 2007.
+            </p>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-heading font-bold">Quick Links</h3>
-            <ul className="space-y-3">
-              {[
-                { name: "Home", href: "/" },
-                { name: "About Us", href: "/about" },
-                { name: "Our Products", href: "/product" },
-                { name: "Contact Us", href: "/contact" },
-                { name: "Sitemap", href: "/sitemap" },
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-secondary-300 hover:text-white transition-colors flex items-center gap-3 group text-sm"
-                  >
-                    <div className="w-1.5 h-1.5 bg-primary-500 rounded-full transition-all duration-200 group-hover:bg-white group-hover:scale-125"></div>
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
+          <div>
+            <h4 className="font-semibold text-yellow-500 mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/product" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Products
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Our Products */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-heading font-bold">Our Products</h3>
-            <ul className="space-y-3">
-              {Object.entries(products).slice(0, 5).map(([key, category]) => (
-                <li key={key}>
-                  <Link
-                    href={`/product/${key}`}
-                    className="text-secondary-300 hover:text-white transition-colors flex items-center gap-3 group text-sm"
-                  >
-                    <div className="w-1.5 h-1.5 bg-accent-500 rounded-full transition-all duration-200 group-hover:bg-white group-hover:scale-125"></div>
-                    {category.name}
-                  </Link>
-                </li>
-              ))}
+          {/* Product Categories */}
+          <div>
+            <h4 className="font-semibold text-yellow-500 mb-4">Product Categories</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/category/electro-actuated-pumps" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Electro Actuated Pumps
+                </Link>
+              </li>
+              <li>
+                <Link href="/category/hydraulic-actuated-pumps" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Hydraulic Actuated Pumps
+                </Link>
+              </li>
+              <li>
+                <Link href="/category/mechanical-actuated-pumps" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Mechanical Actuated Pumps
+                </Link>
+              </li>
+              <li>
+                <Link href="/category/plunger-pumps" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Packed Plunger Pumps
+                </Link>
+              </li>
+              <li>
+                <Link href="/category/pump-accessories" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Pump Accessories
+                </Link>
+              </li>
             </ul>
           </div>
+        </div>
 
-          {/* Contact Information */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-heading font-bold">Contact Information</h3>
-            <div className="space-y-4 text-secondary-300">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 mt-1 flex-shrink-0 text-primary-400" />
-                <div className="text-sm leading-relaxed">
-                  <p className="font-medium text-white mb-1">Head Office</p>
-                  <p className="text-white">C-43/1, VIDYA PALACE, BEHIND AIRPORT ROAD POLICE STATION, CHHOTA BANGARDA, Indore - 452005, Madhya Pradesh, India</p>
+        {/* Separator Line */}
+        <div className="border-t border-gray-600 my-8"></div>
+
+        {/* Contact Information Only */}
+        <div className="grid grid-cols-1 gap-8">
+          <div>
+            {/* Contact Information */}
+            <div className="space-y-3">
+              <div className="flex items-start space-x-3">
+                <div>
+                  <p className="text-gray-300 text-sm">
+                    <strong className="text-yellow-500">Head Office:</strong> C 43/1, Vidya Palace, Chotta Bangarda, INDORE – 452005 (MP)
+                  </p>
+                  <p className="text-gray-300 text-sm mt-1">
+                    <strong className="text-yellow-500">Branch Office:</strong> Shop No 45, 46, D M Tower, Ground Floor, Birgaon, Rawa Bhata – Raipur – 492003 (CG)
+                  </p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary-400" />
-                <div className="text-sm">
-                  <p className="font-medium text-white">Phone</p>
-                  <p className="text-white">+91 7313748861</p>
-                </div>
+              
+              <div className="flex items-center space-x-3">
+                <span className="text-gray-300 text-sm">
+                  <strong className="text-yellow-500">Phone:</strong> +91-9425902891 (Working Hours: 9:00 AM - 6:00 PM)
+                </span>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary-400" />
-                <div className="text-sm">
-                  <p className="font-medium text-white">Contact Person</p>
-                  <p className="text-white">Mr. Devendra Nagwan (Partner)</p>
-                </div>
+              
+              <div className="flex items-center space-x-3">
+                <a 
+                  href="mailto:dpenterprises2007@gmail.com"
+                  className="text-gray-300 hover:text-white text-sm transition-colors duration-300"
+                >
+                  <strong className="text-yellow-500">Email:</strong> dpenterprises2007@gmail.com
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Section */}
-      <div className="border-t border-secondary-800">
-        <div className="container-custom py-8">
-          {/* Action Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <Link 
-              href="/contact" 
-              className="btn-primary flex items-center gap-2 group"
-            >
-              <Send className="w-4 h-4" /> 
-              Send Inquiry
-            </Link>
-            <Link 
-              href="/contact" 
-              className="btn-secondary flex items-center gap-2 group"
-            >
-              <MessageSquare className="w-4 h-4" /> 
-              Send SMS
-            </Link>
-          </div>
-
-          {/* Copyright */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-secondary-400 pt-8 border-t border-secondary-800">
-            <p className="text-white">© {new Date().getFullYear()} DP Enterprises. All Rights Reserved.</p>
-            <p className="text-white">Developed and Managed by ❤️ Infusion Tech</p>
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-600 mt-8 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex flex-wrap items-center space-x-6 text-sm text-gray-400">
+              <Link href="/privacy-policy" className="hover:text-white transition-colors duration-300">
+                Privacy Policy
+              </Link>
+              <Link href="/terms-of-service" className="hover:text-white transition-colors duration-300">
+                Terms of Service
+              </Link>
+              <span>Established 2007</span>
+              <Link href="/contact" className="hover:text-white transition-colors duration-300">
+                Contact Information
+              </Link>
+            </div>
+            
+            <p className="text-sm text-gray-400">
+              © 2025 DP Enterprises. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }
 

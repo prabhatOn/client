@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { MapPin, Phone, Mail, Send, ArrowDown, Clock, Globe, User, MessageSquare, Building2, Shield } from "lucide-react"
+import { MapPin, Phone, Mail, Send, ArrowDown, Clock, Globe, User, MessageSquare, Building2, Shield, ArrowRight } from "lucide-react"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 
@@ -62,63 +62,41 @@ export default function ContactPage() {
         animate={isHeaderInView ? "visible" : "hidden"}
         variants={fadeInUp}
         transition={{ duration: 0.8 }}
-        className="relative h-[70vh] bg-gradient-to-br from-secondary-900 via-secondary-800 to-primary-900 overflow-hidden"
+        className="relative h-[80vh] flex items-center justify-center overflow-hidden"
       >
-        <div className="absolute inset-0 bg-black/40" />
-        <Image 
-          src="/assets/contact.webp" 
-          alt="DP Enterprises Contact - Get In Touch" 
-          fill 
-          className="object-cover mix-blend-overlay" 
-        />
-        
-        {/* Background Elements */}
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-
-        <div className="relative h-full flex items-center justify-center text-center px-4">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-6"
-            >
-              <div className="inline-flex items-center px-4 py-2 bg-primary-500/20 backdrop-blur-sm border border-primary-300/30 rounded-full text-primary-100 text-sm font-medium">
-                <MessageSquare className="w-4 h-4 mr-2" />
-                Get Expert Consultation
-              </div>
-              
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-white leading-tight">
-                Contact
-                <span className="block text-gradient-dark">Our Team</span>
-              </h1>
-              
-              <p className="text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-                Ready to discuss your industrial pumping needs? Our experts are here to provide 
-                tailored solutions for your specific requirements.
-              </p>
-              
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={isHeaderInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <button
-                  onClick={scrollToMap}
-                  className="inline-flex items-center gap-2 text-lg font-medium text-white/90 hover:text-white transition-colors group"
-                >
-                  Visit Our Office
-                  <ArrowDown className="w-5 h-5 animate-bounce group-hover:translate-y-1 transition-transform" />
-                </button>
-              </motion.div>
-            </motion.div>
-          </div>
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/contact.png"
+            alt="DP Enterprises Contact"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
       </motion.section>
 
-      <section className="section-padding bg-white">
-        <div className="container-custom">
+      {/* Main Content Section */}
+      <section className="py-16 md:py-20 lg:py-24 bg-white">
+        <div className="container mx-auto px-6 lg:px-8">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInfoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <div className="inline-block px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium mb-4">
+              Contact Information
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: '#11497b' }}>
+              Let's Start a <span className="text-yellow-500">Conversation</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Reach out to our team of experts for professional consultation and tailored industrial pumping solutions
+            </p>
+          </motion.div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Information */}
             <motion.div
@@ -129,86 +107,86 @@ export default function ContactPage() {
               transition={{ duration: 0.8, staggerChildren: 0.1 }}
               className="space-y-8"
             >
-              <motion.div variants={fadeInUp} className="space-y-4">
-                <h2 className="text-4xl lg:text-5xl font-heading font-bold text-secondary-900">
-                  Let's <span className="text-gradient">Connect</span>
-                </h2>
-                <p className="text-xl text-secondary-600 leading-relaxed">
-                  Reach out to us for expert guidance on industrial pumping solutions.
-                </p>
-              </motion.div>
-
-              <motion.div variants={fadeInUp} className="card-elevated bg-white p-8 hover:shadow-large transition-all duration-300">
-                <h3 className="text-2xl font-heading font-bold mb-6 text-secondary-900">Contact Information</h3>
+              {/* Contact Cards */}
+              <motion.div variants={fadeInUp} className="bg-white border border-gray-100 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-1 bg-yellow-500 rounded-full"></div>
+                  <div className="w-2 h-1 bg-gray-300 rounded-full"></div>
+                </div>
+                <h3 className="text-2xl font-bold mb-6" style={{ color: '#11497b' }}>Contact Information</h3>
                 <div className="space-y-6">
-                  <motion.div variants={fadeInUp} className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-primary-600" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-yellow-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-secondary-900 mb-1">Our Location</h4>
-                      <p className="text-secondary-600 leading-relaxed">
+                      <h4 className="font-semibold mb-1" style={{ color: '#11497b' }}>Our Location</h4>
+                      <p className="text-gray-600 leading-relaxed">
                         C-43/1, VIDYA PALACE, BEHIND AIRPORT ROAD POLICE STATION, 
                         CHHOTA BANGARDA, Indore - 452005, Madhya Pradesh, India
                       </p>
                     </div>
-                  </motion.div>
+                  </div>
 
-                  <motion.div variants={fadeInUp} className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-accent-600" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-yellow-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-secondary-900 mb-1">Phone Number</h4>
-                      <p className="text-secondary-600">+91 7313748861</p>
+                      <h4 className="font-semibold mb-1" style={{ color: '#11497b' }}>Phone Number</h4>
+                      <p className="text-gray-600">+91 7313748861</p>
                     </div>
-                  </motion.div>
+                  </div>
 
-                  <motion.div variants={fadeInUp} className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-secondary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <User className="w-6 h-6 text-secondary-600" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <User className="w-6 h-6 text-yellow-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-secondary-900 mb-1">Contact Person</h4>
-                      <p className="text-secondary-600">Mr. Devendra Nagwan (Partner)</p>
+                      <h4 className="font-semibold mb-1" style={{ color: '#11497b' }}>Contact Person</h4>
+                      <p className="text-gray-600">Mr. Devendra Nagwan (Partner)</p>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="card-elevated bg-white p-8 hover:shadow-large transition-all duration-300">
-                <h3 className="text-2xl font-heading font-bold mb-6 text-secondary-900">Business Information</h3>
+              <motion.div variants={fadeInUp} className="bg-white border border-gray-100 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-1 bg-yellow-500 rounded-full"></div>
+                  <div className="w-2 h-1 bg-gray-300 rounded-full"></div>
+                </div>
+                <h3 className="text-2xl font-bold mb-6" style={{ color: '#11497b' }}>Business Information</h3>
                 <div className="space-y-6">
-                  <motion.div variants={fadeInUp} className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-6 h-6 text-primary-600" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-6 h-6 text-yellow-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-secondary-900 mb-1">Working Hours</h4>
-                      <p className="text-secondary-600">Monday - Saturday: 9:00 AM - 6:00 PM</p>
-                      <p className="text-secondary-600">Sunday: Closed</p>
+                      <h4 className="font-semibold mb-1" style={{ color: '#11497b' }}>Working Hours</h4>
+                      <p className="text-gray-600">Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                      <p className="text-gray-600">Sunday: Closed</p>
                     </div>
-                  </motion.div>
+                  </div>
 
-                  <motion.div variants={fadeInUp} className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-accent-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Globe className="w-6 h-6 text-accent-600" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Globe className="w-6 h-6 text-yellow-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-secondary-900 mb-1">Service Area</h4>
-                      <p className="text-secondary-600">Available across India</p>
+                      <h4 className="font-semibold mb-1" style={{ color: '#11497b' }}>Service Area</h4>
+                      <p className="text-gray-600">Available across India</p>
                     </div>
-                  </motion.div>
+                  </div>
 
-                  <motion.div variants={fadeInUp} className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-secondary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Building2 className="w-6 h-6 text-secondary-600" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Building2 className="w-6 h-6 text-yellow-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-secondary-900 mb-1">Established</h4>
-                      <p className="text-secondary-600">Since 2007 - 17+ Years of Excellence</p>
+                      <h4 className="font-semibold mb-1" style={{ color: '#11497b' }}>Established</h4>
+                      <p className="text-gray-600">Since 2007 - 17+ Years of Excellence</p>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
@@ -221,20 +199,24 @@ export default function ContactPage() {
               variants={fadeInUp}
               transition={{ duration: 0.8, staggerChildren: 0.1 }}
               onSubmit={handleSubmit}
-              className="card-elevated bg-white p-8 space-y-6 h-fit hover:shadow-large transition-all duration-300"
+              className="bg-white border border-gray-100 rounded-2xl p-8 space-y-6 h-fit hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
             >
               <motion.div variants={fadeInUp} className="space-y-4">
-                <h2 className="text-3xl font-heading font-bold text-secondary-900">
-                  Send us a <span className="text-gradient">Message</span>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-1 bg-yellow-500 rounded-full"></div>
+                  <div className="w-2 h-1 bg-gray-300 rounded-full"></div>
+                </div>
+                <h2 className="text-3xl font-bold" style={{ color: '#11497b' }}>
+                  Send us a <span className="text-yellow-500">Message</span>
                 </h2>
-                <p className="text-secondary-600">
-                  Fill out the form below and we'll get back to you within 24 hours.
+                <p className="text-gray-600">
+                  Fill out the form below and we'll get back to you within 24 hours with expert guidance.
                 </p>
               </motion.div>
 
               <motion.div variants={fadeInUp} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="block text-sm font-semibold text-secondary-900">
+                  <label htmlFor="name" className="block text-sm font-semibold" style={{ color: '#11497b' }}>
                     Your Name *
                   </label>
                   <input
@@ -242,14 +224,14 @@ export default function ContactPage() {
                     id="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-neutral-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 bg-neutral-50 focus:bg-white"
-                    placeholder="John Doe"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300 bg-gray-50 focus:bg-white"
+                    placeholder="Enter your full name"
                     required
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="email" className="block text-sm font-semibold text-secondary-900">
+                  <label htmlFor="email" className="block text-sm font-semibold" style={{ color: '#11497b' }}>
                     Email Address *
                   </label>
                   <input
@@ -257,15 +239,15 @@ export default function ContactPage() {
                     id="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-neutral-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 bg-neutral-50 focus:bg-white"
-                    placeholder="john@example.com"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300 bg-gray-50 focus:bg-white"
+                    placeholder="your@email.com"
                     required
                   />
                 </div>
               </motion.div>
 
               <motion.div variants={fadeInUp} className="space-y-2">
-                <label htmlFor="mobile" className="block text-sm font-semibold text-secondary-900">
+                <label htmlFor="mobile" className="block text-sm font-semibold" style={{ color: '#11497b' }}>
                   Mobile Number *
                 </label>
                 <input
@@ -273,14 +255,14 @@ export default function ContactPage() {
                   id="mobile"
                   value={formData.mobile}
                   onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-neutral-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 bg-neutral-50 focus:bg-white"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300 bg-gray-50 focus:bg-white"
                   placeholder="+91 98765 43210"
                   required
                 />
               </motion.div>
 
               <motion.div variants={fadeInUp} className="space-y-2">
-                <label htmlFor="subject" className="block text-sm font-semibold text-secondary-900">
+                <label htmlFor="subject" className="block text-sm font-semibold" style={{ color: '#11497b' }}>
                   Subject *
                 </label>
                 <input
@@ -288,14 +270,14 @@ export default function ContactPage() {
                   id="subject"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-neutral-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 bg-neutral-50 focus:bg-white"
-                  placeholder="What is this regarding?"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300 bg-gray-50 focus:bg-white"
+                  placeholder="What can we help you with?"
                   required
                 />
               </motion.div>
 
               <motion.div variants={fadeInUp} className="space-y-2">
-                <label htmlFor="message" className="block text-sm font-semibold text-secondary-900">
+                <label htmlFor="message" className="block text-sm font-semibold" style={{ color: '#11497b' }}>
                   Your Message *
                 </label>
                 <textarea
@@ -303,8 +285,8 @@ export default function ContactPage() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={4}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-neutral-200 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-300 resize-none bg-neutral-50 focus:bg-white"
-                  placeholder="Tell us about your requirements..."
+                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all duration-300 resize-none bg-gray-50 focus:bg-white"
+                  placeholder="Tell us about your industrial pumping requirements, project details, or any questions you have..."
                   required
                 ></textarea>
               </motion.div>
@@ -313,23 +295,23 @@ export default function ContactPage() {
                 variants={fadeInUp}
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full btn-primary py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed group"
+                className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-4 px-6 rounded-xl text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed group transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 {isSubmitting ? (
                   <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto" />
                 ) : (
-                  <>
-                    <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                  <div className="flex items-center justify-center gap-2">
+                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     Send Message
-                  </>
+                  </div>
                 )}
               </motion.button>
 
               <motion.div variants={fadeInUp} className="flex items-center justify-center pt-4">
-                <div className="flex items-center gap-2 text-sm text-secondary-600">
-                  <Shield className="w-4 h-4 text-primary-600" />
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <Shield className="w-4 h-4 text-yellow-600" />
                   Your information is secure and confidential
                 </div>
               </motion.div>
@@ -338,9 +320,59 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Why Choose Us Section */}
+      <section className="py-16 md:py-20 bg-yellow-500">
+        <div className="container mx-auto px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <div className="w-16 h-1 bg-white mb-6"></div>
+            <h3 className="text-2xl lg:text-3xl font-normal text-white">
+              WHY CHOOSE DP ENTERPRISES
+            </h3>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h4 className="text-xl font-bold text-white mb-2">17+ Years Experience</h4>
+              <p className="text-white text-opacity-90">Proven expertise in industrial pumping solutions</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <User className="w-8 h-8 text-white" />
+              </div>
+              <h4 className="text-xl font-bold text-white mb-2">Expert Team</h4>
+              <p className="text-white text-opacity-90">Qualified professionals ready to assist you</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white bg-opacity-20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Building2 className="w-8 h-8 text-white" />
+              </div>
+              <h4 className="text-xl font-bold text-white mb-2">Milton Roy Authorized</h4>
+              <p className="text-white text-opacity-90">Official distributor of premium equipment</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Map Section */}
-      <section ref={mapSectionRef} className="section-padding bg-neutral-50">
-        <div className="container-custom">
+      <section ref={mapSectionRef} className="py-16 md:py-20 lg:py-24 bg-gray-50">
+        <div className="container mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -348,11 +380,14 @@ export default function ContactPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-heading font-bold text-secondary-900 mb-4">
-              Visit Our <span className="text-gradient">Office</span>
+            <div className="inline-block px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium mb-4">
+              Visit Our Office
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: '#11497b' }}>
+              Find Us <span className="text-yellow-500">Easily</span>
             </h2>
-            <p className="text-xl text-secondary-600 max-w-2xl mx-auto">
-              Find us easily with our convenient location in Indore, Madhya Pradesh
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Located in the heart of Indore, Madhya Pradesh - easily accessible and ready to serve your industrial needs
             </p>
           </motion.div>
           
@@ -363,18 +398,18 @@ export default function ContactPage() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="card-elevated bg-white p-4 overflow-hidden">
+            <div className="bg-white border border-gray-100 rounded-2xl p-4 overflow-hidden hover:shadow-2xl transition-all duration-500">
               <div className="aspect-w-16 h-[500px] w-full rounded-2xl overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.0072974893565!2d81.63415617487107!3d21.310727980410082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28e70334ff8821%3A0x21f27a37b122042a!2sNew%20DM%20Tower&#39;s!5e0!3m2!1sen!2sin!4v1737619808718!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="filter brightness-95 contrast-105"
-                ></iframe>
+                {/* Map Placeholder */}
+                <div className="bg-gray-200 w-full h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-6 flex items-center justify-center">
+                      <MapPin className="w-12 h-12 text-gray-500" />
+                    </div>
+                    <p className="text-gray-500 text-lg font-medium">Interactive Map</p>
+                    <p className="text-gray-400 text-sm mt-2">Google Maps integration for easy navigation</p>
+                  </div>
+                </div>
               </div>
             </div>
             
@@ -384,24 +419,31 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="absolute top-8 left-8 card-elevated bg-white p-6 max-w-sm shadow-large"
+              className="absolute top-8 left-8 bg-white border border-gray-100 rounded-2xl p-6 max-w-sm shadow-xl"
             >
               <div className="flex items-start gap-3 mb-4">
-                <div className="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-primary-600" />
+                <div className="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-yellow-600" />
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-secondary-900 mb-1">DP Enterprises</h3>
-                  <p className="text-secondary-600 text-sm leading-relaxed">
+                  <h3 className="font-bold mb-1" style={{ color: '#11497b' }}>DP Enterprises</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     C-43/1, VIDYA PALACE, BEHIND AIRPORT ROAD POLICE STATION, 
                     CHHOTA BANGARDA, Indore - 452005
                   </p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-2 text-sm text-primary-600 font-semibold">
+              <div className="flex items-center gap-2 text-sm text-yellow-600 font-semibold">
                 <Phone className="w-4 h-4" />
                 +91 7313748861
+              </div>
+              
+              <div className="mt-4 pt-4 border-t border-gray-100">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-gray-600">Get Directions</span>
+                  <ArrowRight className="w-4 h-4 text-yellow-600" />
+                </div>
               </div>
             </motion.div>
           </motion.div>

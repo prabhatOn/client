@@ -1,0 +1,97 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define brand color -->
+  <defs>
+    <style>
+      .brand-color { fill: #11497b; }
+      .outline { fill: none; stroke: #94a3b8; stroke-width: 1.5; }
+      .highlighted { fill: #11497b; opacity: 0.3; stroke: #11497b; stroke-width: 2; }
+      .pin { fill: #ef4444; }
+      .pin-head { fill: #dc2626; }
+      .text { font-family: Arial, sans-serif; font-size: 10px; fill: #1f2937; font-weight: 600; }
+    </style>
+  </defs>
+  
+  <!-- India Outline -->
+  <g class="outline">
+    <!-- Simplified India outline -->
+    <path d="M150 50 Q160 45 170 50 Q180 55 190 65 L200 80 Q210 90 220 100 L230 120 Q240 140 245 160 L250 180 Q255 200 260 220 L265 240 Q270 260 275 280 L280 300 Q285 320 290 340 L295 360 Q300 380 305 400 L310 420 Q305 430 295 435 L280 440 Q260 445 240 440 L220 435 Q200 430 185 425 L170 420 Q155 415 145 410 L135 405 Q125 400 120 390 L115 380 Q110 370 108 360 L106 350 Q104 340 105 330 L107 320 Q110 310 115 300 L120 290 Q125 280 130 270 L135 260 Q140 250 142 240 L144 230 Q146 220 145 210 L144 200 Q143 190 140 180 L137 170 Q134 160 130 150 L125 140 Q120 130 118 120 L116 110 Q114 100 115 90 L117 80 Q120 70 125 62 L130 55 Q135 50 142 48 Z"/>
+    
+    <!-- Kashmir region -->
+    <path d="M140 45 Q145 40 150 42 L155 45 Q160 48 158 52 L155 55 Q150 58 145 55 L140 52 Q138 48 140 45 Z"/>
+    
+    <!-- Northeast states -->
+    <path d="M280 120 Q285 115 290 118 L295 122 Q300 126 302 130 L304 135 Q306 140 304 145 L302 150 Q298 155 293 152 L288 148 Q283 144 280 140 L278 135 Q276 130 278 125 Z"/>
+    
+    <!-- Southern tip -->
+    <path d="M200 430 Q205 435 208 440 L210 445 Q212 450 210 455 L208 460 Q205 465 200 462 L195 458 Q190 454 188 450 L186 445 Q184 440 186 435 L188 430 Q192 425 197 428 Z"/>
+  </g>
+
+  <!-- Highlighted Regions -->
+  <!-- Madhya Pradesh -->
+  <path class="highlighted" d="M130 180 Q140 175 155 178 L170 182 Q185 186 195 190 L205 195 Q215 200 220 210 L225 220 Q230 230 228 240 L225 250 Q220 260 210 265 L200 270 Q185 275 170 272 L155 268 Q140 264 130 255 L125 245 Q120 235 122 225 L125 215 Q128 205 130 195 Z"/>
+  
+  <!-- Chhattisgarh -->
+  <path class="highlighted" d="M195 240 Q205 235 218 238 L230 242 Q240 246 245 255 L250 265 Q255 275 252 285 L248 295 Q243 305 235 308 L225 310 Q210 312 195 308 L185 305 Q175 302 170 295 L168 285 Q166 275 168 265 L172 255 Q178 245 185 242 Z"/>
+  
+  <!-- Nagpur region (Vidarbha) -->
+  <path class="highlighted" d="M160 260 Q170 255 182 258 L194 262 Q204 266 208 275 L212 285 Q216 295 213 305 L209 315 Q204 325 195 328 L185 330 Q170 332 155 328 L145 325 Q135 322 130 315 L128 305 Q126 295 128 285 L132 275 Q138 265 148 262 Z"/>
+
+  <!-- Office Pins -->
+  <!-- Indore Head Office Pin -->
+  <g transform="translate(145, 220)">
+    <ellipse class="pin" cx="0" cy="8" rx="8" ry="12"/>
+    <circle class="pin-head" cx="0" cy="0" r="8"/>
+    <circle fill="white" cx="0" cy="0" r="4"/>
+    <text class="text" x="15" y="-5">Indore</text>
+    <text class="text" x="15" y="5" font-size="8" fill="#666">(Head Office)</text>
+  </g>
+  
+  <!-- Raipur Office Pin -->
+  <g transform="translate(210, 270)">
+    <ellipse class="pin" cx="0" cy="8" rx="8" ry="12"/>
+    <circle class="pin-head" cx="0" cy="0" r="8"/>
+    <circle fill="white" cx="0" cy="0" r="4"/>
+    <text class="text" x="15" y="-5">Raipur</text>
+    <text class="text" x="15" y="5" font-size="8" fill="#666">(Branch Office)</text>
+  </g>
+  
+  <!-- Nagpur Office Pin -->
+  <g transform="translate(185, 285)">
+    <ellipse class="pin" cx="0" cy="8" rx="8" ry="12"/>
+    <circle class="pin-head" cx="0" cy="0" r="8"/>
+    <circle fill="white" cx="0" cy="0" r="4"/>
+    <text class="text" x="15" y="-5">Nagpur</text>
+    <text class="text" x="15" y="5" font-size="8" fill="#666">(Branch Office)</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(20, 400)">
+    <rect fill="white" stroke="#e5e7eb" x="-10" y="-10" width="160" height="80" rx="8"/>
+    <text class="text" x="0" y="0" font-size="12" font-weight="bold">Coverage Areas</text>
+    
+    <!-- MP -->
+    <rect class="highlighted" x="0" y="10" width="15" height="10" rx="2"/>
+    <text class="text" x="20" y="18">Madhya Pradesh</text>
+    
+    <!-- CG -->
+    <rect class="highlighted" x="0" y="25" width="15" height="10" rx="2"/>
+    <text class="text" x="20" y="33">Chhattisgarh</text>
+    
+    <!-- Nagpur -->
+    <rect class="highlighted" x="0" y="40" width="15" height="10" rx="2"/>
+    <text class="text" x="20" y="48">Vidarbha (Nagpur)</text>
+    
+    <!-- Pin legend -->
+    <circle class="pin-head" cx="7" cy="60" r="5"/>
+    <circle fill="white" cx="7" cy="60" r="2"/>
+    <text class="text" x="20" y="63">Office Locations</text>
+  </g>
+
+  <!-- Title -->
+  <text x="200" y="30" text-anchor="middle" class="text" font-size="16" font-weight="bold" fill="#11497b">
+    DP Enterprises Coverage Map
+  </text>
+  <text x="200" y="45" text-anchor="middle" class="text" font-size="12" fill="#666">
+    Milton Roy Authorized Channel Partners
+  </text>
+</svg>

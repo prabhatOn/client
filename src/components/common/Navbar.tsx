@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Search, Menu, X, ChevronDown, Phone, Mail, Package } from "lucide-react"
+import { Menu, X, ChevronDown, Search, Globe } from "lucide-react"
 import productsData from "@/components/data/products-complete.json"
 
 // Type definitions for the complete product data
@@ -28,19 +28,35 @@ type ProductCategory = {
 const products = productsData.categories
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [showProductMenu, setShowProductMenu] = useState(false)
-  const [activeCategory, setActiveCategory] = useState<ProductCategories | null>(null)
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
   const navRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      const currentScrollY = window.scrollY
+      
+      // Show/hide navbar based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide navbar
+        setIsVisible(false)
+      } else {
+        // Scrolling up - show navbar
+        setIsVisible(true)
+      }
+      
+      // Change background when scrolled
+      setIsScrolled(currentScrollY > 50)
+      setLastScrollY(currentScrollY)
     }
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [lastScrollY])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -60,249 +76,219 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-secondary-800 text-white py-2 px-4 text-sm hidden lg:block">
-        <div className="container-custom flex justify-between items-center">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center">
-              <Phone className="w-4 h-4 mr-2" />
-              <span>+91 731 2345678</span>
-            </div>
-            <div className="flex items-center">
-              <Mail className="w-4 h-4 mr-2" />
-              <span>info@dpenterprises.com</span>
-            </div>
-            <div className="text-xs text-secondary-300">
-              GST: 23AABFD8781J1ZC | Partner: Mr. Devendra Nagwan
-            </div>
-          </div>
-          <div className="text-xs text-secondary-300">
-            Trusted Industrial Solutions Since 2007
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navigation */}
-      <nav
-        ref={navRef}
-        className={`sticky top-0 w-full z-50 transition-all duration-300 ${
+      {/* Blue Header - Grundfos Style with Scroll Behavior */}
+      <header 
+        className={`fixed top-0 left-0 right-0 z-50 text-white transition-all duration-300 ease-in-out ${
+          isVisible ? 'translate-y-0' : '-translate-y-full'
+        } ${
           isScrolled 
-            ? "bg-white/95 backdrop-blur-md shadow-medium border-b border-neutral-200" 
-            : "bg-white/90 backdrop-blur-sm"
+            ? 'bg-[#11497b] shadow-lg' 
+            : 'bg-transparent'
         }`}
       >
-        <div className="container-custom">
+        <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">DP</span>
-              </div>
-              <div className="hidden sm:block">
-                <h1 className="text-xl font-heading font-bold text-secondary-900">DP Enterprises</h1>
-                <p className="text-xs text-secondary-600">Industrial Solutions</p>
+              <div className="flex items-center space-x-3">
+                <div className="text-white">
+                  <h1 className="text-2xl text-white font-medium">DP ENTERPRISES</h1>
+                  <p className="text-sm text-white opacity-90">Industrial Solutions</p>
+                </div>
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Right Side - Desktop */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/" className="nav-link text-secondary-700 hover:text-primary-600 font-medium">
-                Home
-              </Link>
-              
-              {/* Products Dropdown */}
-              <div 
-                className="relative group"
-                onMouseEnter={() => setShowProductMenu(true)}
-                onMouseLeave={() => setShowProductMenu(false)}
-              >
-                <Link href="/product" ><button className="nav-link flex items-center text-secondary-700 hover:text-primary-600 font-medium transition-colors">
-                  Products
-                  <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${showProductMenu ? 'rotate-180' : ''}`} />
-                </button>
-                </Link>
-                {/* Invisible bridge to prevent dropdown from disappearing */}
-                <div className="absolute top-full left-0 w-full h-2 bg-transparent"></div>
-                
-                {showProductMenu && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-screen max-w-5xl bg-white shadow-large rounded-2xl border border-neutral-200 mt-0 p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="flex gap-6">
-                      {/* Categories List - Left Side */}
-                      <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-secondary-900 mb-4">Product Categories</h3>
-                        <div className="space-y-2">
-                          {Object.entries(products).map(([key, category]) => (
-                            <div
-                              key={key}
-                              className="group/item"
-                              onMouseEnter={() => setActiveCategory(key as ProductCategories)}
-                            >
-                              <Link
-                                href={`/category/${key}`}
-                                className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gradient-to-r hover:from-primary-50 hover:to-accent-50 transition-all duration-200 border border-transparent hover:border-primary-100"
-                              >
-                              <div className="w-12 h-12 bg-gradient-to-br from-primary-50 to-accent-50 rounded-lg flex items-center justify-center group-hover/item:from-primary-100 group-hover/item:to-accent-100 transition-colors">
-                                <Image
-                                  src={category.image}
-                                  alt={category.name}
-                                  width={32}
-                                  height={32}
-                                  className="object-contain"
-                                />
-                              </div>
-                              <div className="flex-1">
-                                <h4 className="font-medium text-secondary-900 group-hover/item:text-primary-600 transition-colors text-sm">
-                                  {category.name}
-                                </h4>
-                                <p className="text-xs text-secondary-500">{category.items?.length || 0} products</p>
-                              </div>
-                              <ArrowRight className="w-4 h-4 text-secondary-400 group-hover/item:text-primary-600 transition-colors" />
-                              </Link>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Category Details - Right Side */}
-                      <div className="w-80 border-l border-neutral-200 pl-6">
-                        {activeCategory ? (
-                          <div className="space-y-4">
-                            <div className="text-center">
-                              <div className="w-40 h-40 bg-gradient-to-br from-primary-50 to-accent-50 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <Image
-                                  src={products[activeCategory].image}
-                                  alt={products[activeCategory].name}
-                                  width={120}
-                                  height={120}
-                                  className="object-contain"
-                                />
-                              </div>
-                              <h4 className="font-semibold text-secondary-900 text-base mb-2">
-                                {products[activeCategory].name}
-                              </h4>
-                              <p className="text-sm text-secondary-600 mb-4 line-clamp-3">
-                                {products[activeCategory].description}
-                              </p>
-                            </div>
-                            
-                            <div className="space-y-3">
-                              <div className="flex items-center justify-between text-sm">
-                                <span className="text-secondary-600">Total Products:</span>
-                                <span className="font-medium text-primary-600">{products[activeCategory].items?.length || 0}</span>
-                              </div>
-                              <div className="flex items-center justify-between text-sm">
-                                <span className="text-secondary-600">Applications:</span>
-                                <span className="font-medium text-secondary-900">{products[activeCategory].applications?.length || 0}+</span>
-                              </div>
-                            </div>
-
-                            <Link
-                              href={`/category/${activeCategory}`}
-                              className="block w-full text-center bg-gradient-to-r from-primary-600 to-accent-600 text-white py-2 px-4 rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all duration-200 text-sm font-medium"
-                            >
-                              View All Products
-                            </Link>
-                          </div>
-                        ) : (
-                          <div className="text-center py-8">
-                            <div className="w-16 h-16 bg-neutral-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                              <Package className="w-8 h-8 text-neutral-400" />
-                            </div>
-                            <h4 className="font-medium text-secondary-900 mb-2">Select a Category</h4>
-                            <p className="text-sm text-secondary-600">Hover over a category to see details</p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                    
-                    <div className="border-t border-neutral-200 mt-4 pt-4 flex items-center justify-between">
-                      <div className="text-sm text-secondary-600">
-                        <span className="font-medium">{Object.values(products).reduce((total, category) => total + (category.items?.length || 0), 0)}</span> total products across <span className="font-medium">{Object.keys(products).length}</span> categories
-                      </div>
-                      <Link
-                        href="/product"
-                        className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors"
-                      >
-                        View All Products
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Link>
-                    </div>
-                  </div>
-                )}
+              {/* Business Details */}
+              <div className="flex items-center space-x-6 text-sm">
+                <span className="text-white/90">GST: 23AAGFD3172Q1Z7</span>
+                <span className="text-white/90">|</span>
+                <span className="text-white/90">+91-9425902891</span>
+                <span className="text-white/90">|</span>
+                <span className="text-white/90">dpenterprises2007@gmail.com</span>
               </div>
-
-              <Link href="/about" className="nav-link text-secondary-700 hover:text-primary-600 font-medium">
-                About
-              </Link>
-              <Link href="/contact" className="nav-link text-secondary-700 hover:text-primary-600 font-medium">
-                Contact
-              </Link>
+              
+              {/* Country/Language Selector */}
+              <div className="flex items-center space-x-2 text-sm">
+                <Globe className="w-4 h-4" />
+                <span>India - EN</span>
+              </div>
             </div>
 
-            {/* CTA and Mobile Menu */}
-            <div className="flex items-center space-x-4">
-              <Link href="/contact" className="hidden lg:block btn-primary">
-                Get Quote
-              </Link>
-              
-              <button
-                onClick={toggleMobileMenu}
-                className="lg:hidden p-2 rounded-xl bg-neutral-100 hover:bg-neutral-200 transition-colors"
-              >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 text-white"
+              onClick={toggleMobileMenu}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* HR Divider */}
+        <hr className="border-[#ffffff4d] border-t mx-20" />
+
+        {/* Navigation Bar */}
+        <div className={`${isScrolled ? 'bg-[#11497b]' : 'bg-transparent'}`}>
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between h-14">
+              {/* Main Navigation */}
+              <div className="hidden lg:flex items-center space-x-8">
+                
+                <div 
+                  className="relative group"
+                  onMouseEnter={() => setShowProductMenu(true)}
+                  onMouseLeave={() => setShowProductMenu(false)}
+                >
+                  <button className="flex items-center text-white hover:text-blue-200 font-light transition-colors py-4">
+                    Products & Services
+                    <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${showProductMenu ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {showProductMenu && (
+                    <div className="absolute top-full left-0 w-[800px] mt-0 z-50">
+                      <div className="bg-[#11497b] shadow-2xl rounded-lg border border-blue-600 overflow-hidden">
+                        <div className="flex">
+                          {/* Categories Column */}
+                          <div className="w-1/2 bg-[#11497b] border-r border-blue-600">
+                            <div className="p-4">
+                              <h3 className="text-white font-semibold text-sm mb-3">Product Categories</h3>
+                              <div className="space-y-1">
+                                {Object.entries(products).map(([key, category]) => (
+                                  <div
+                                    key={key}
+                                    className={`flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all duration-200 ${
+                                      activeCategory === key 
+                                        ? 'bg-white/20 text-white' 
+                                        : 'text-white/80 hover:bg-white/10 hover:text-white'
+                                    }`}
+                                    onMouseEnter={() => setActiveCategory(key)}
+                                  >
+                                    <div className="flex-1">
+                                      <h4 className="font-medium text-white text-sm">{category.name}</h4>
+                                      <p className="text-xs text-white/80 opacity-70">{category.items?.length || 0} products</p>
+                                    </div>
+                                    <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Products Column */}
+                          <div className="w-1/2 bg-white">
+                            {activeCategory && products[activeCategory as keyof typeof products] ? (
+                              <div className="p-4">
+                                <div className="flex items-center justify-between mb-3">
+                                  <h3 className="text-[#11497b] font-semibold text-sm">
+                                    {products[activeCategory as keyof typeof products].name}
+                                  </h3>
+                                </div>
+                                <div className="space-y-2 max-h-80 overflow-y-auto">
+                                  {products[activeCategory as keyof typeof products].items?.slice(0, 6).map((product) => (
+                                    <Link
+                                      key={product.id}
+                                      href={`/product/${product.slug}`}
+                                      className="flex items-center space-x-3 p-2 rounded-lg hover:bg-blue-50 transition-colors group"
+                                    >
+                                      <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden">
+                                        <Image
+                                          src={product.image || '/assets/products/default.jpg'}
+                                          alt={product.name}
+                                          width={24}
+                                          height={24}
+                                          className="object-cover rounded"
+                                        />
+                                      </div>
+                                      <div className="flex-1">
+                                        <h4 className="font-medium text-gray-900 text-xs group-hover:text-[#11497b] transition-colors line-clamp-2">
+                                          {product.name}
+                                        </h4>
+                                        <p className="text-xs text-gray-500 mt-1 line-clamp-1">
+                                          {product.description}
+                                        </p>
+                                      </div>
+                                    </Link>
+                                  )) || []}
+                                </div>
+                                
+                                {/* Bottom CTA */}
+                                <div className="mt-4 pt-3 border-t border-gray-200">
+                                  <Link
+                                    href={`/category/${activeCategory}`}
+                                    className="flex items-center justify-center w-full py-2 bg-[#11497b] text-white rounded-lg text-sm font-medium hover:bg-[#0f3a5f] transition-colors group"
+                                  >
+                                    <span>View All {products[activeCategory as keyof typeof products].items?.length || 0} Products</span>
+                                    <ChevronDown className="w-4 h-4 ml-1 rotate-[-90deg] group-hover:translate-x-1 transition-transform" />
+                                  </Link>
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="p-4 h-80 flex items-center justify-center">
+                                <div className="text-center text-gray-500">
+                                  <div className="w-12 h-12 bg-gray-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                                    <Search className="w-6 h-6 text-gray-400" />
+                                  </div>
+                                  <p className="text-sm">Hover over a category to see products</p>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                 <Link href="/" className="text-white hover:text-blue-200 font-light transition-colors">
+                  Home
+                </Link>
+                <Link href="/about" className="text-white hover:text-blue-200 font-light transition-colors">
+                  About us
+                </Link>
+
+                <Link href="/contact" className="text-white hover:text-blue-200 font-light transition-colors">
+                  Contact us
+                </Link>
+              </div>
+
+              {/* Search Icon */}
+              <div className="hidden lg:block">
+                <button className="p-2 text-white hover:text-blue-200 transition-colors">
+                  <Search className="w-5 h-5" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-neutral-200 shadow-large">
-            <div className="container-custom py-6 space-y-4">
-              <Link 
-                href="/" 
-                className="block py-3 text-secondary-700 hover:text-primary-600 font-medium border-b border-neutral-100"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+          <div className={`lg:hidden border-t border-white/10 ${isScrolled ? 'bg-[#11497b]' : 'bg-[#11497b]/90'}`}>
+            <div className="px-4 py-4 space-y-4">
+              <Link href="/" className="block text-white hover:text-blue-200 font-medium py-2">
                 Home
               </Link>
-              
-              <Link 
-                href="/product" 
-                className="block py-3 text-secondary-700 hover:text-primary-600 font-medium border-b border-neutral-100"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                All Products
+              <Link href="/product" className="block text-white hover:text-blue-200 font-medium py-2">
+                Products & Services
               </Link>
-              
-              <Link 
-                href="/about" 
-                className="block py-3 text-secondary-700 hover:text-primary-600 font-medium border-b border-neutral-100"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                About
+              <Link href="/about" className="block text-white hover:text-blue-200 font-medium py-2">
+                About us
               </Link>
-              <Link 
-                href="/contact" 
-                className="block py-3 text-secondary-700 hover:text-primary-600 font-medium border-b border-neutral-100"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
+              <Link href="/contact" className="block text-white hover:text-blue-200 font-medium py-2">
+                Contact us
               </Link>
-              <div className="pt-4">
-                <Link 
-                  href="/contact" 
-                  className="btn-primary w-full text-center inline-block"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Get Quote
-                </Link>
+              <div className="pt-2 border-t border-white/10">
+                <button className="flex items-center space-x-2 text-white hover:text-blue-200 py-2">
+                  <Search className="w-4 h-4" />
+                  <span>Search</span>
+                </button>
               </div>
             </div>
           </div>
         )}
-      </nav>
+      </header>
     </>
   )
 }
-
