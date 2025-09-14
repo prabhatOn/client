@@ -95,14 +95,14 @@ export default function ProductCarousel({ products, isInView }: ProductCarouselP
 
       {/* Carousel */}
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-6">
+        <div className="flex gap-3 sm:gap-4 md:gap-6">
           {Object.entries(products).map(([categoryId, category], index) => (
             <motion.div
               key={categoryId}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: index * 0.1, duration: 0.8 }}
-              className="flex-none w-[380px]"
+              className="flex-none w-[280px] sm:w-[320px] md:w-[350px] lg:w-[380px]"
             >
               <Link href={`/category/${categoryId}`} className="group block h-full">
                 <div className="bg-white h-full flex flex-col hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 rounded-2xl border border-gray-100 overflow-hidden">

@@ -64,7 +64,7 @@ const AboutSection: React.FC = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-10 h-screen relative overflow-hidden"
+      className="py-8 sm:py-10 lg:py-12 min-h-screen lg:h-screen relative overflow-hidden"
       style={{
         backgroundImage: "url('/about-1.png')",
         backgroundSize: 'cover',
@@ -77,28 +77,28 @@ const AboutSection: React.FC = () => {
       <div className="absolute inset-0 bg-black/40"></div>
       
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-10 h-full">
-        <div className="relative h-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full">
+        <div className="relative h-full flex flex-col lg:block">
           {/* Left Content */}
-          <div className="max-w-2xl pt-10">
+          <div className="max-w-full lg:max-w-2xl pt-6 sm:pt-8 lg:pt-10">
             <div>
-              <div className="inline-flex items-center px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-white/10 text-white rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                 About DP Enterprises
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                 Authorised Channel Partners of{" "}
                 <span className="text-yellow-400">
                   Milton Roy
                 </span>
               </h2>
-              <div className="text-lg text-yellow-400 font-semibold mb-4">
+              <div className="text-base sm:text-lg text-yellow-400 font-semibold mb-3 sm:mb-4">
                 For MP, CG & Nagpur Region
               </div>
-              <p className="text-xl text-white/90 leading-relaxed mb-6">
+              <p className="text-base sm:text-lg lg:text-xl text-white/90 leading-relaxed mb-4 sm:mb-6">
                 DP ENTERPRISES established in the year 2007, are the authorised Channel Partners of 
                 MILTON ROY for the entire area of Madhya Pradesh, Chhattisgarh & Vidharbha (Nagpur).
               </p>
-              <p className="text-lg text-white/80 leading-relaxed mb-8">
+              <p className="text-sm sm:text-base lg:text-lg text-white/80 leading-relaxed mb-6 sm:mb-8">
                 At D P Enterprises, we prioritize quality, reliability, and customer satisfaction. 
                 Our partnership with Milton Roy ensure that our clients receive top-tier products at 
                 competitive prices. We also take pride in our timely delivery services and our commitment 
@@ -107,23 +107,23 @@ const AboutSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Bottom - Office Location Cards */}
-          <div className="absolute bottom-28 right-8 space-y-3">
+          {/* Office Location Cards - Responsive Layout */}
+          <div className="mt-8 lg:absolute lg:bottom-28 lg:right-8 space-y-3 max-w-full lg:max-w-sm">
             {offices.map((office, index) => (
-              <div key={index} className="bg-white rounded-xl p-4 shadow-lg border border-gray-200 transform hover:scale-105 transition-all duration-300 max-w-sm">
+              <div key={index} className="bg-white rounded-xl p-3 sm:p-4 shadow-lg border border-gray-200 transform hover:scale-105 transition-all duration-300 w-full lg:max-w-sm">
                 {/* Card Header */}
-                <div className="flex items-center space-x-2 mb-3">
+                <div className="flex items-center space-x-2 mb-2 sm:mb-3">
                   <div className="p-1.5 bg-red-50 rounded-full">
                     {office.icon}
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-gray-900">{office.type}</h3>
+                    <h3 className="text-xs sm:text-sm font-bold text-gray-900">{office.type}</h3>
                     <p className="text-xs font-medium text-brand-500">{office.location}</p>
                   </div>
                 </div>
                 
                 {/* Address */}
-                <div className="flex items-start space-x-2 mb-3">
+                <div className="flex items-start space-x-2 mb-2 sm:mb-3">
                   <MapPin className="h-3 w-3 text-gray-400 mt-0.5 flex-shrink-0" />
                   <p className="text-xs text-gray-600 leading-relaxed">
                     {office.address}
@@ -139,7 +139,7 @@ const AboutSection: React.FC = () => {
                 </div>
                 
                 {/* Google Maps style bottom bar */}
-                <div className="mt-3 pt-2 border-t border-gray-100">
+                <div className="mt-2 sm:mt-3 pt-2 border-t border-gray-100">
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-gray-400 uppercase tracking-wide font-medium">
                       Office Location

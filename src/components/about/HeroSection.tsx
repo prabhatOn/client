@@ -14,7 +14,7 @@ export default function HeroSection({ isInView }: HeroSectionProps) {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className="relative h-[80vh] flex items-center justify-center overflow-hidden"
+      className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] flex  justify-center overflow-hidden"
     >
       {/* Background Video */}
       <div className="absolute inset-0">
@@ -24,6 +24,7 @@ export default function HeroSection({ isInView }: HeroSectionProps) {
           muted
           playsInline
           className="w-full h-full object-cover"
+          style={{ objectPosition: 'center' }}
         >
           <source src="/about-vid.mp4" type="video/mp4" />
           {/* Fallback background image if video fails to load */}

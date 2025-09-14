@@ -122,44 +122,55 @@ export default function CategoryProductPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50">      {/* Modern Hero Section */}
-      <motion.div 
-        className="relative bg-gradient-to-br from-secondary-900 via-secondary-800 to-primary-900 text-white overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >        {/* Category Image Background */}
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Matching Product Page Style */}
+      <section className="relative pt-16 bg-gradient-to-r from-blue-800 to-blue-900 text-white overflow-hidden" style={{
+        background: `linear-gradient(135deg, #0f3460 0%, #1a4a75 25%, #204d7a 50%, #0f3460 100%)`,
+      }}>
+        {/* Subtle Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <Image
-            src={category.image}
-            alt={category.name}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
+          <div 
+            className="w-full h-full"
+            style={{
+              backgroundImage: `
+                linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.02) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.02) 75%)
+              `,
+              backgroundSize: '30px 30px',
+              backgroundPosition: '0 0, 0 15px, 15px -15px, -15px 0px'
+            }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/90 via-secondary-800/90 to-primary-900/90" />
+        </div>
+
+        {/* Static Geometric Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Small outlined boxes */}
+          <div className="absolute top-32 left-16 w-8 h-8 border border-white opacity-15"></div>
+          <div className="absolute top-24 right-24 w-6 h-6 border border-yellow-500 opacity-20 rotate-45"></div>
+          <div className="absolute bottom-40 left-32 w-10 h-10 border border-white opacity-10 rotate-12"></div>
+          <div className="absolute bottom-32 right-16 w-7 h-7 border border-yellow-500 opacity-25"></div>
+          
+          {/* Small outlined circles */}
+          <div className="absolute top-48 left-1/4 w-6 h-6 border border-white opacity-20 rounded-full"></div>
+          <div className="absolute top-40 right-1/3 w-8 h-8 border border-yellow-500 opacity-15 rounded-full"></div>
+          <div className="absolute bottom-48 left-2/3 w-5 h-5 border border-white opacity-25 rounded-full"></div>
+          <div className="absolute bottom-56 right-1/4 w-9 h-9 border border-yellow-500 opacity-12 rounded-full"></div>
+          
+          {/* Additional scattered elements */}
+          <div className="absolute top-1/3 left-12 w-4 h-4 border border-white opacity-18 rotate-45"></div>
+          <div className="absolute top-2/3 right-12 w-6 h-6 border border-yellow-500 opacity-22 rounded-full"></div>
         </div>
         
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_white_1px,_transparent_0)] bg-[length:50px_50px]"></div>
-        </div>
-        
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-accent-600/20"></div>
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-accent-400/20 to-primary-400/20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-gradient-to-tr from-primary-400/20 to-accent-400/20 rounded-full blur-2xl"></div>
-        
-        <div className="relative container-custom py-8">
-          {/* Navigation Bar */}
+        <div className="container mx-auto px-6 lg:px-8 py-24 md:py-28 relative z-10">
+          {/* Navigation */}
           <motion.div 
             className="flex items-center justify-between mb-8"
             variants={itemVariants}
             initial="hidden"
             animate="visible"
           >
-            {/* Back Button */}
             <Link 
               href="/product"
               className="flex items-center text-white/80 hover:text-white transition-colors group"
@@ -168,22 +179,19 @@ export default function CategoryProductPage() {
               <span>Back to Products</span>
             </Link>
             
-            {/* Action Buttons */}
-            <div className="flex items-center space-x-4">
-              <motion.button
-                onClick={handleShare}
-                className="p-2 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Share2 className="w-5 h-5" />
-              </motion.button>
-            </div>
+            <motion.button
+              onClick={handleShare}
+              className="p-2 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Share2 className="w-5 h-5" />
+            </motion.button>
           </motion.div>
-          
+
           {/* Breadcrumb */}
           <motion.nav 
-            className="flex items-center text-sm text-white/70 mb-6"
+            className="flex items-center text-sm text-white/70 mb-8"
             variants={itemVariants}
             initial="hidden"
             animate="visible"
@@ -194,211 +202,242 @@ export default function CategoryProductPage() {
             <ChevronRight className="w-4 h-4 mx-2" />
             <span className="text-white font-medium">{category.name}</span>
           </motion.nav>
-          
-          {/* Hero Content */}
-          <motion.div 
-            className="max-w-4xl"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.h1 
-              className="font-heading text-4xl lg:text-6xl font-bold mb-6 text-gradient"
-              variants={itemVariants}
-            >
+
+          {/* Header */}
+          <div className="mb-12">
+            <div className="w-16 h-1 bg-yellow-500 mb-6"></div>
+            <h3 className="text-sm font-bold tracking-wide uppercase mb-6 text-yellow-500">
+              PRODUCT CATEGORY
+            </h3>
+            <h1 className="text-3xl lg:text-5xl font-normal text-white leading-tight mb-8">
               {category.name}
-            </motion.h1>
-            
-            <motion.p 
-              className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl"
-              variants={itemVariants}
-            >
+            </h1>
+            <p className="text-xl text-gray-300 leading-relaxed max-w-4xl">
               {category.description}
-            </motion.p>
+            </p>
+          </div>
+
+          {/* Category Stats */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4 flex items-center space-x-3">
+              <Package className="w-5 h-5 text-yellow-500" />
+              <span className="text-white font-medium">{category.items.length} Products Available</span>
+            </div>
             
-            {/* Key Stats */}
-            <motion.div 
-              className="flex flex-wrap gap-6"
-              variants={itemVariants}
-            >
-              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3">
-                <Package className="w-5 h-5 text-blue-400 mr-2" />
-                <span className="text-white font-medium">{category.items.length} Products</span>
-              </div>
-              
-              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3">
-                <Star className="w-5 h-5 text-yellow-400 mr-2" />
-                <span className="text-white font-medium">Premium Quality</span>
-              </div>
-              
-              <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3">
-                <Shield className="w-5 h-5 text-green-400 mr-2" />
-                <span className="text-white font-medium">Certified Products</span>
-              </div>
-            </motion.div>
-          </motion.div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4 flex items-center space-x-3">
+              <Star className="w-5 h-5 text-yellow-500" />
+              <span className="text-white font-medium">Premium Quality</span>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4 flex items-center space-x-3">
+              <Shield className="w-5 h-5 text-yellow-500" />
+              <span className="text-white font-medium">Certified Products</span>
+            </div>
+          </div>
         </div>
-      </motion.div>
+      </section>
 
       {/* Main Content */}
-      <main className="container-custom py-16">
-        {/* Category Overview */}
-        <motion.section 
-          className="mb-16"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <motion.div 
-            className="grid lg:grid-cols-2 gap-12 items-center"
-            variants={itemVariants}
-          >
-            {/* Category Info */}
-            <div>
-              <motion.h2 
-                className="font-heading text-3xl lg:text-4xl font-bold text-secondary-900 mb-6"
-                variants={itemVariants}
-              >
-                About {category.name}
-              </motion.h2>
-                <motion.p 
-                className="text-lg text-secondary-700 mb-8 leading-relaxed"
-                variants={itemVariants}
-              >
-                {category.overview || category.description}
-              </motion.p>
-                {/* Features */}
+      <main>
+        {/* Category Overview Section - White Background */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="container mx-auto px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              {/* Category Visual */}
               <motion.div 
-                className="space-y-4"
+                className="order-2 lg:order-1"
                 variants={itemVariants}
               >
-                {category.advantages ? (
-                  category.advantages.slice(0, 3).map((advantage, index) => (
-                    <div key={index} className="flex items-start">
-                      <CheckCircle className="w-6 h-6 text-primary-600 mt-0.5 mr-3 flex-shrink-0" />
-                      <div>
-                        <p className="text-secondary-600">{advantage}</p>
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-6 h-6 text-primary-600 mt-0.5 mr-3 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-secondary-900 mb-1">High Performance</h4>
-                        <p className="text-secondary-600">Industry-leading efficiency and reliability</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <CheckCircle className="w-6 h-6 text-primary-600 mt-0.5 mr-3 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-secondary-900 mb-1">Quality Assurance</h4>
-                        <p className="text-secondary-600">Rigorous testing and quality control</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <CheckCircle className="w-6 h-6 text-primary-600 mt-0.5 mr-3 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-secondary-900 mb-1">Expert Support</h4>
-                        <p className="text-secondary-600">Professional installation and maintenance</p>
-                      </div>
-                    </div>
-                  </>
-                )}
-              </motion.div>
-            </div>              {/* Category Visual */}
-            <motion.div 
-              className="relative"
-              variants={itemVariants}
-            >
-              {/* Category Image */}
-              <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden p-8">
-                <div className="relative h-64 bg-white rounded-xl flex items-center justify-center">
-                  <div className="relative w-full h-full max-w-xs">
+                {/* Category Image */}
+                <div className="bg-gray-50 rounded-lg p-8 flex items-center justify-center mb-8">
+                  <div className="relative w-full h-80 max-w-md">
                     <Image
                       src={category.image}
                       alt={category.name}
                       fill
                       className="object-contain"
-                      sizes="(max-width: 768px) 240px, 300px"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                 </div>
-              </div>
-              
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-accent-400 to-primary-500 rounded-xl flex items-center justify-center shadow-lg">
-                <Award className="w-6 h-6 text-white" />
-              </div>
-              
-              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center shadow-lg">
-                <TrendingUp className="w-6 h-6 text-white" />
-              </div>
-            </motion.div>
-          </motion.div>
-        </motion.section>
-
-        {/* Products Grid */}
-        <motion.section
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <motion.div 
-            className="text-center mb-12"
-            variants={itemVariants}
-          >
-            <h2 className="font-heading text-3xl lg:text-4xl font-bold text-secondary-900 mb-4">
-              Our Products
-            </h2>
-            <p className="text-lg text-secondary-600 max-w-2xl mx-auto">
-              Explore our comprehensive range of high-quality {category.name.toLowerCase()}
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-            variants={containerVariants}
-          >            {category.items.map((product: any, index: number) => (
-              <motion.div
-                key={product.id}
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <ProductCard 
-                  product={{
-                    id: product.id,
-                    name: product.name,
-                    description: product.description || `High-quality ${product.name.toLowerCase()} for industrial applications`,
-                    image: product.image,
-                    price: product.price ? {
-                      min: product.price.min,
-                      max: product.price.max,
-                      currency: product.price.currency
-                    } : {
-                      min: 25000,
-                      max: 75000,
-                      currency: "INR"
-                    },
-                    specifications: product.specifications ? Object.entries(product.specifications).map(([name, value]) => ({
-                      name,
-                      value: value as string | number
-                    })) : [],
-                    features: product.features || [],
-                    applications: product.applications || []
-                  }} 
-                  index={index}
-                />
               </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
+
+              {/* Category Details */}
+              <div className="order-1 lg:order-2 space-y-8">
+                <div className="w-16 h-1" style={{ backgroundColor: '#11497b' }}></div>
+                <h3 className="text-sm font-bold tracking-wide uppercase" style={{ color: '#11497b' }}>
+                  CATEGORY OVERVIEW
+                </h3>
+
+                <motion.h2 
+                  className="text-3xl lg:text-4xl font-normal text-gray-800 mb-6"
+                  variants={itemVariants}
+                >
+                  About {category.name}
+                </motion.h2>
+                
+                <motion.div 
+                  className="space-y-6"
+                  variants={itemVariants}
+                >
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    {category.overview || category.description}
+                  </p>
+
+                  {/* Category Statistics */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <div className="bg-gray-50 rounded-lg p-6 text-center">
+                      <div className="text-2xl font-bold text-gray-800 mb-2">{category.items.length}</div>
+                      <div className="text-sm text-gray-600">Products Available</div>
+                    </div>
+                    <div className="bg-gray-50 rounded-lg p-6 text-center">
+                      <div className="text-2xl font-bold text-gray-800 mb-2">17+</div>
+                      <div className="text-sm text-gray-600">Years Experience</div>
+                    </div>
+                    <div className="bg-gray-50 rounded-lg p-6 text-center">
+                      <div className="text-2xl font-bold text-gray-800 mb-2">100%</div>
+                      <div className="text-sm text-gray-600">Quality Assured</div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Key Advantages & Applications Section - Yellow Background */}
+        <section className="py-12 md:py-16 bg-yellow-500">
+          <div className="container mx-auto px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto">
+              <div className="mb-10">
+                <div className="w-16 h-1 bg-white mb-6"></div>
+                <h3 className="text-2xl lg:text-3xl font-normal text-white">
+                  KEY ADVANTAGES & APPLICATIONS
+                </h3>
+              </div>
+
+              <div className="grid lg:grid-cols-2 gap-12">
+                {/* Key Advantages */}
+                <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-20">
+                  <h4 className="text-xl font-medium text-white mb-6 flex items-center">
+                    <CheckCircle className="w-6 h-6 mr-3" />
+                    Key Advantages
+                  </h4>
+                  {category.advantages && category.advantages.length > 0 ? (
+                    <div className="space-y-4">
+                      {category.advantages.map((advantage, index) => (
+                        <div key={index} className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-white/90 leading-relaxed">{advantage}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-white/90 leading-relaxed">High performance and reliability</span>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-white/90 leading-relaxed">Industry-leading efficiency</span>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-white/90 leading-relaxed">Professional installation and maintenance support</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Applications */}
+                <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 border border-white border-opacity-20">
+                  <h4 className="text-xl font-medium text-white mb-6 flex items-center">
+                    <Package className="w-6 h-6 mr-3" />
+                    Applications
+                  </h4>
+                  {category.applications && category.applications.length > 0 ? (
+                    <div className="space-y-4">
+                      {category.applications.map((application, index) => (
+                        <div key={index} className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-white/90 leading-relaxed">{application}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-white/90 leading-relaxed">Industrial processing applications</span>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-white/90 leading-relaxed">Water treatment systems</span>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-white/90 leading-relaxed">Chemical processing facilities</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Products Grid Section - White Background */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="container mx-auto px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto">
+              <div className="mb-12 text-center">
+                <div className="w-16 h-1 bg-yellow-500 mb-6 mx-auto"></div>
+                <h3 className="text-2xl lg:text-3xl font-normal text-gray-800 mb-4">
+                  PRODUCTS IN {category.name.toUpperCase()}
+                </h3>
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                  Explore our comprehensive range of high-quality {category.name.toLowerCase()}
+                </p>
+              </div>
+
+              <motion.div 
+                className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                {category.items.map((product: any, index: number) => (
+                  <motion.div
+                    key={product.id}
+                    variants={itemVariants}
+                    className="bg-gray-50 rounded-lg p-4 hover:shadow-lg transition-all duration-200 border border-gray-100"
+                  >
+                    <div className="relative h-40 mb-4 bg-white rounded-lg p-2">
+                      <Image
+                        src={product.image || "/placeholder.svg"}
+                        alt={product.name}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, 25vw"
+                      />
+                    </div>
+                    <h4 className="text-gray-800 font-medium text-sm mb-2 line-clamp-2">
+                      {product.name}
+                    </h4>
+                    <Link
+                      href={`/product/${product.id}`}
+                      className="inline-flex items-center text-blue-600 hover:text-blue-800 text-sm font-medium group"
+                    >
+                      View Details
+                      <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   )
