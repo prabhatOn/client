@@ -1,8 +1,8 @@
 {
   "categories": {
-    "electro-actuated-pumps": {
-      "id": "electro-actuated-pumps",
-      "name": "Milton Roy Electro Actuated Diaphragm Pumps",
+    "electronically-actuated-pumps": {
+      "id": "electronically-actuated-pumps",
+      "name": "Milton Roy Electronically Actuated Diaphragm Pumps",
       "slug": "electro-actuated-pumps",
       "description": "Advanced electronic dosing pumps for precise chemical metering and industrial applications",
       "image": "/new/Milton Roy Electro Actuated Diaphragm Pumps/V-A-Series-Electro-Magnetically-Actuated-Diaphragm-Dosing-Pump.jpg",
@@ -37,8 +37,8 @@
           },
           "specifications": {
             "flowRate": "12 LPH",
-            "pressure": "12 kgf/cm2",
-            "material": "Metal",
+            "pressure": "12 kg/cm2",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Diaphragm Pump",
             "productType": "A Series Electro Magnetically Actuated Diaphragm Dosing Pump",
@@ -52,7 +52,7 @@
             "deliveryTime": "30 Days",
             "mainDomesticMarket": "All India"
           },
-          "description": "The V and A Series Electro Magnetically Actuated Diaphragm Dosing Pump offers precise dosing with electromagnetic actuation technology. Designed for industrial applications, this pump provides reliable performance with a flow rate of 12 LPH and operates at 12 kgf/cm2 pressure.",
+          "description": "The V and A Series Electro Magnetically Actuated Diaphragm Dosing Pump offers precise dosing with electromagnetic actuation technology. Designed for industrial applications, this pump provides reliable performance with a flow rate of 12 LPH and operates at 12 kg/cm2 pressure.",
           "features": [
             "Electromagnetic actuation for precise control",
             "Metal construction for durability",
@@ -74,8 +74,8 @@
           },
           "specifications": {
             "flowRate": "17 LPH",
-            "pressure": "10 kgf/cm2",
-            "material": "Metal",
+            "pressure": "10 kg/cm2",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Diaphragm Pump",
             "productType": "Electro Magnetically Actuated Diaphragm Type Dosing Pump",
@@ -85,7 +85,7 @@
             "supplyAbility": "10 Per Month",
             "mainDomesticMarket": "All India"
           },
-          "description": "The B Series Electro Magnetically Actuated Diaphragm Type Dosing Pump delivers reliable performance with a flow rate of 17 LPH and operates at 10 kgf/cm2 pressure, ideal for various industrial dosing applications.",
+          "description": "The B Series Electro Magnetically Actuated Diaphragm Type Dosing Pump delivers reliable performance with a flow rate of 17 LPH and operates at 10 kg/cm2 pressure, ideal for various industrial dosing applications.",
           "features": [
             "Higher flow rate capacity",
             "Electromagnetic actuation technology",
@@ -107,8 +107,8 @@
           },
           "specifications": {
             "flowRate": "90 LPH",
-            "pressure": "Other kgf/cm2",
-            "material": "Metal",
+            "pressure": "Other kg/cm2",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Diaphragm Pump",
             "productType": "D Series Electro Magnetically Actuated Diaphragm Dosing Pump",
@@ -140,8 +140,8 @@
           },
           "specifications": {
             "flowRate": "6 LPH",
-            "pressure": "4 kgf/cm2",
-            "material": "Metal",
+            "pressure": "4 kg/cm2",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Electronic Dosing Pump",
             "productType": "100SPM Electronic Dosing Pump For Chlorination",
@@ -164,8 +164,8 @@
       ]
     },
     "mechanical-actuated-pumps": {
-      "id": "mechanical-actuated-pumps",
-      "name": "Milton Roy Actuated Diaphragm Type Dosing Pumps",
+      "id": "mechanically-actuated-pumps",
+      "name": "Milton Roy Mechanically Actuated Diaphragm Pumps",
       "slug": "mechanical-actuated-pumps",
       "description": "Reliable mechanical dosing pumps for industrial applications with superior performance",
       "image": "/new/Milton Roy Actuated Diaphragm Type Dosing Pumps/GB-Series-Mechanically-Actuated-Diaphragm-Type-Dosing-Pump.jpg",
@@ -199,7 +199,7 @@
           },
           "specifications": {
             "pressure": "High Pressure",
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Diaphragm Pump",
             "productType": "GB Series Mechanically Actuated Diaphragm Type Dosing Pump",
@@ -231,7 +231,7 @@
           },
           "specifications": {
             "pressure": "High Pressure",
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Diaphragm Pump",
             "productType": "M Series Mechanically Actuated Diaphragm Type Dosing Pump",
@@ -254,7 +254,7 @@
     },
     "hydraulic-actuated-pumps": {
       "id": "hydraulic-actuated-pumps",
-      "name": "Milton Roy Hydraulically Actuated Diaphragm Pumps",
+      "name": "Milton Roy Hydraulically Actuated Diaphragm Type Dosing Pumps",
       "slug": "hydraulic-actuated-pumps",
       "description": "High-performance hydraulic pumps for precise fluid control and dosing applications",
       "image": "/new/Milton Roy Hydraulically Actuated Diaphragm Pumps/m-Roy-Series-A-B-H-P-Hydraulically-Actuated-Diaphragm-Type-Dosing-Pump.jpg",
@@ -290,7 +290,7 @@
           "specifications": {
             "flowRate": "88 LPH",
             "pressure": "High Pressure",
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Hydraulic",
             "structure": "Diaphragm Pump",
             "productType": "A Series 88 LPH Hydraulically Actuated Diaphragm Type Dosing Pump",
@@ -323,7 +323,7 @@
           "specifications": {
             "flowRate": "7000 LPH",
             "pressure": "High Pressure",
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Diaphragm Pump",
             "productType": "PHL Series 7000LPH Hydraulically Actuated Diaphragm Type Dosing Pump",
@@ -357,7 +357,7 @@
           "specifications": {
             "flowRate": "760 LPH",
             "pressure": "High Pressure",
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Diaphragm Pump",
             "productType": "B105 Series 760LPH Hydraulically Actuated Diaphragm Type Dosing Pump",
@@ -390,7 +390,7 @@
           "specifications": {
             "flowRate": "2000 LPH",
             "pressure": "High Pressure",
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Hydraulic",
             "structure": "Diaphragm Pump",
             "productType": "B145 Series 2000LPH Hydraulically Actuated Diaphragm Type Dosing Pump",
@@ -450,7 +450,7 @@
           "specifications": {
             "flowRate": "2000 LPH",
             "pressure": "High Pressure",
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Packed Plunger Pump",
             "productType": "PN-K Series 2000LPH Packed Plunger Dosing Pump",
@@ -487,7 +487,7 @@
           "specifications": {
             "flowRate": "5722 LPH",
             "pressure": "High Pressure",
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Packed Plunger Pump",
             "productType": "PN-L Series 5722LPH Packed Plunger Dosing Pump",
@@ -523,7 +523,7 @@
           "specifications": {
             "flowRate": "190 LPH",
             "pressure": "High Pressure",
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Packed Plunger Pump",
             "productType": "PN-M Series 190LPH Packed Plunger Dosing Pump",
@@ -560,7 +560,7 @@
           "specifications": {
             "flowRate": "457 LPH",
             "pressure": "High Pressure",
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Packed Plunger Pump",
             "productType": "PN-P Series 457LPH Packed Plunger Dosing Pump",
@@ -597,7 +597,7 @@
           "specifications": {
             "flowRate": "45.2 LPH",
             "pressure": "High Pressure",
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "power": "Electric",
             "structure": "Packed Plunger Pump",
             "productType": "PN-Z Series 45.2LPH Packed Plunger Dosing Pump",
@@ -618,6 +618,112 @@
             "Suitable for wide variety of liquids",
             "Low noise level operation",
             "Easy to install and maintain"
+          ]
+        }
+      ]
+    },
+    "compact-dosing-systems": {
+      "id": "compact-dosing-systems",
+      "name": "Compact Dosing System",
+      "slug": "compact-dosing-systems",
+      "description": "Compact, high-pressure dosing systems for industrial metering applications",
+      "image": "/new/Milton Roy Pump Accessories/Compact-Dosing-System.jpg",
+      "overview": "Our Compact Dosing Systems provide efficient and reliable dosing of liquids and gases. These systems are equipped with digital displays, adjustable flow control, and built-in safety features for industrial applications.",
+      "advantages": [
+        "Compact footprint",
+        "Digital monitoring",
+        "Adjustable flow control",
+        "Built-in safety systems",
+        "Energy efficient operation"
+      ],
+      "applications": [
+        "Chemical dosing",
+        "Water treatment",
+        "Process control",
+        "Laboratory systems",
+        "Industrial metering"
+      ],
+      "items": [
+        {
+          "id": "compact-dosing-system",
+          "name": "Compact Dosing System",
+          "slug": "compact-dosing-system",
+          "image": "/new/Milton Roy Pump Accessories/Compact-Dosing-System.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "material": "Metal",
+            "color": "Yellow",
+            "productType": "Compact Dosing System",
+            "power": "Electric",
+            "pressure": "High Pressure",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "10 Per Month",
+            "paymentTerms": "Cash in Advance (CID)",
+            "deliveryTime": "30 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "We are a distributor and supplier of Compact Dosing Systems. Our systems are designed to provide high-pressure, efficient and reliable dosing of liquids and gases in industrial applications. The system is equipped with advanced features such as a digital display, adjustable flow rate, and a built-in safety system.",
+          "features": [
+            "High-pressure dosing capability",
+            "Digital display for monitoring",
+            "Adjustable flow rate control",
+            "Built-in safety system",
+            "Energy efficient operation",
+            "Easy to install and maintain"
+          ]
+        }
+      ]
+    },
+    "polypack": {
+      "id": "polypack",
+      "name": "Polypack",
+      "slug": "polypack",
+      "description": "Polypack systems and accessories",
+      "image": "/new/Milton Roy Pump Accessories/Continuous-Automatic-Preparation-Machine.jpg",
+      "overview": "Polypack Continuous and Automatic Preparation machines for efficient material preparation",
+      "advantages": [],
+      "applications": [],
+      "items": [
+        {
+          "id": "continuous-automatic-preparation-machine",
+          "name": "Polypack Continuous And Automatic Preparation Machine",
+          "slug": "continuous-automatic-preparation-machine",
+          "image": "/new/Milton Roy Pump Accessories/Continuous-Automatic-Preparation-Machine.jpg",
+          "price": {
+            "min": 0,
+            "max": 0,
+            "currency": "INR",
+            "unit": "Unit"
+          },
+          "specifications": {
+            "material": "Metal",
+            "productType": "Continuous And Automatic Preparation Machine",
+            "pressure": "High Pressure",
+            "size": "Different Available",
+            "usage": "Industrial"
+          },
+          "tradeInfo": {
+            "minimumOrderQuantity": "1 Unit",
+            "supplyAbility": "50 Per Month",
+            "deliveryTime": "10 Days",
+            "mainDomesticMarket": "All India"
+          },
+          "description": "We are proud to offer our customers the Continuous and Automatic Preparation Machine. This machine is perfect for industrial use, and is designed to provide high-pressure performance. It is capable of automatically preparing the material for processing, without the need for manual labor.",
+          "features": [
+            "Automatic material preparation",
+            "High-pressure performance",
+            "No manual labor required",
+            "Energy-efficient operation",
+            "Easy to use and maintain",
+            "Consistent results"
           ]
         }
       ]
@@ -658,7 +764,7 @@
             "unit": "Unit"
           },
           "specifications": {
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "color": "Yellow",
             "productType": "Actuator Capacity Controller",
             "size": "Different Available",
@@ -693,7 +799,7 @@
             "unit": "Unit"
           },
           "specifications": {
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "color": "Yellow",
             "productType": "Electronic Capacity Controller",
             "size": "Different Available",
@@ -729,7 +835,7 @@
             "unit": "Unit"
           },
           "specifications": {
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "color": "Black, Yellow",
             "productType": "Back Pressure Valve",
             "size": "Different Available",
@@ -789,76 +895,6 @@
           ]
         },
         {
-          "id": "compact-dosing-system",
-          "name": "Compact Dosing System",
-          "slug": "compact-dosing-system",
-          "image": "/new/Milton Roy Pump Accessories/Compact-Dosing-System.jpg",
-          "price": {
-            "min": 0,
-            "max": 0,
-            "currency": "INR",
-            "unit": "Unit"
-          },
-          "specifications": {
-            "material": "Metal",
-            "color": "Yellow",
-            "productType": "Compact Dosing System",
-            "power": "Electric",
-            "pressure": "High Pressure",
-            "usage": "Industrial"
-          },
-          "tradeInfo": {
-            "minimumOrderQuantity": "1 Unit",
-            "supplyAbility": "10 Per Month",
-            "paymentTerms": "Cash in Advance (CID)",
-            "deliveryTime": "30 Days",
-            "mainDomesticMarket": "All India"
-          },
-          "description": "We are a distributor and supplier of Compact Dosing Systems. Our systems are designed to provide high-pressure, efficient and reliable dosing of liquids and gases in industrial applications. The system is equipped with advanced features such as a digital display, adjustable flow rate, and a built-in safety system.",
-          "features": [
-            "High-pressure dosing capability",
-            "Digital display for monitoring",
-            "Adjustable flow rate control",
-            "Built-in safety system",
-            "Energy efficient operation",
-            "Easy to install and maintain"
-          ]
-        },
-        {
-          "id": "continuous-automatic-preparation-machine",
-          "name": "Continuous And Automatic Preparation Machine",
-          "slug": "continuous-automatic-preparation-machine",
-          "image": "/new/Milton Roy Pump Accessories/Continuous-Automatic-Preparation-Machine.jpg",
-          "price": {
-            "min": 0,
-            "max": 0,
-            "currency": "INR",
-            "unit": "Unit"
-          },
-          "specifications": {
-            "material": "Metal",
-            "productType": "Continuous And Automatic Preparation Machine",
-            "pressure": "High Pressure",
-            "size": "Different Available",
-            "usage": "Industrial"
-          },
-          "tradeInfo": {
-            "minimumOrderQuantity": "1 Unit",
-            "supplyAbility": "50 Per Month",
-            "deliveryTime": "10 Days",
-            "mainDomesticMarket": "All India"
-          },
-          "description": "We are proud to offer our customers the Continuous and Automatic Preparation Machine. This machine is perfect for industrial use, and is designed to provide high-pressure performance. It is capable of automatically preparing the material for processing, without the need for manual labor.",
-          "features": [
-            "Automatic material preparation",
-            "High-pressure performance",
-            "No manual labor required",
-            "Energy-efficient operation",
-            "Easy to use and maintain",
-            "Consistent results"
-          ]
-        },
-        {
           "id": "proteus-series-metering-pump",
           "name": "Proteus Series Metering Pump",
           "slug": "proteus-series-metering-pump",
@@ -870,7 +906,7 @@
             "unit": "Unit"
           },
           "specifications": {
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "pressure": "High Pressure",
             "productType": "Proteus Series Metering Pump",
             "power": "Electric",
@@ -931,7 +967,7 @@
             "unit": "Unit"
           },
           "specifications": {
-            "material": "Metal",
+            "material": "PP PVC PVDF SS-316 ",
             "color": "Yellow",
             "productType": "Metal Automatic Pinch Valve",
             "application": "Industrial",

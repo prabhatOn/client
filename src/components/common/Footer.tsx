@@ -58,17 +58,17 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link href="/category/electro-actuated-pumps" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Electro Actuated Pumps
+                  Electronically Actuated Pumps
                 </Link>
               </li>
               <li>
                 <Link href="/category/hydraulic-actuated-pumps" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Hydraulic Actuated Pumps
+                  Hydraulically Actuated Pumps
                 </Link>
               </li>
               <li>
                 <Link href="/category/mechanical-actuated-pumps" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Mechanical Actuated Pumps
+                  Mechanically Actuated Pumps
                 </Link>
               </li>
               <li>

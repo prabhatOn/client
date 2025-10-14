@@ -47,10 +47,7 @@ export default function AboutContent({ isInView }: AboutContentProps) {
             {/* Main Story Text */}
             <div className="space-y-4 sm:space-y-6">
               <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                We dared to imagine superior pumping solutions and 
-                vowed to build systems that work, for everyone. That 
-                promise continues with DP Enterprises as your trusted 
-                partner for Milton Roy precision pumps and dosing equipment.
+                Milton Roy dosing pumps are known for their precision, reliability, and chemical compatibility, making them essential across a wide range of industries and application
               </p>
             </div>
 
@@ -72,6 +69,24 @@ export default function AboutContent({ isInView }: AboutContentProps) {
                 <h4 className="text-xs sm:text-sm font-bold tracking-wide uppercase text-gray-600 mb-2">
                   INDUSTRIAL SOLUTIONS
                 </h4>
+              </div>
+              
+              {/* Industries list - Milton Roy applications (names only) */}
+              <div className="pt-4">
+                <h4 className="text-xs sm:text-sm font-bold tracking-wide uppercase text-gray-600 mb-3">
+                  INDUSTRIES
+                </h4>
+                <ul className="grid grid-cols-2 sm:grid-cols-2 gap-2 text-sm text-gray-700">
+                  <li>Water & Wastewater Treatment</li>
+                  <li>Power Generation</li>
+                  <li>Chemical Processing</li>
+                  <li>Food & Beverage</li>
+                  <li>Pharmaceutical & Biotech</li>
+                  <li>Mining & Metallurgy</li>
+                  <li>Pulp & Paper</li>
+                  <li>Textile Industry</li>
+                  <li>Agriculture & Fertigation</li>
+                </ul>
               </div>
             </div>
           </div>

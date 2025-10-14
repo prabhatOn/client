@@ -16,16 +16,6 @@ const QuickLinks = () => {
               QUICK LINKS:
             </span>
 
-            {/* Download Center */}
-            <Link
-              href="/dp-data.txt"
-              download
-              className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors duration-200 text-sm"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download Center</span>
-            </Link>
-
             {/* See Products */}
             <Link
               href="/product"
@@ -44,13 +34,13 @@ const QuickLinks = () => {
               <span>Enquiry</span>
             </button>
 
-            {/* Support */}
+            {/* Contact */}
             <Link
               href="/contact"
               className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors duration-200 text-sm"
             >
               <HeadphonesIcon className="w-4 h-4" />
-              <span>Support</span>
+              <span>Contact Us</span>
             </Link>
           </div>
         </div>

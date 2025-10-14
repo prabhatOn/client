@@ -149,7 +149,7 @@ export default function Navbar() {
                   </Link>
                   
                   {showProductMenu && (
-                    <div className="absolute top-full left-0 w-[800px] mt-0 z-50">
+                    <div className="absolute top-full b-10 left-0 w-[1000px] mt-0 z-50">
                       <div className="bg-[#11497b] shadow-2xl rounded-lg border border-blue-600 overflow-hidden">
                         <div className="flex">
                           {/* Categories Column */}
@@ -195,19 +195,19 @@ export default function Navbar() {
                                     {products[activeCategory as keyof typeof products].name}
                                   </h3>
                                 </div>
-                                <div className="space-y-2 max-h-80 overflow-y-auto">
+                                <div className="space-y-2 max-h-128 overflow-y-auto">
                                   {products[activeCategory as keyof typeof products].items?.slice(0, 6).map((product) => (
                                     <Link
                                       key={product.id}
                                       href={`/product/${product.slug}`}
                                       className="flex items-center space-x-3 p-2 rounded-lg hover:bg-blue-50 transition-colors group"
                                     >
-                                      <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden">
+                                      <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center overflow-hidden">
                                         <Image
                                           src={product.image || '/assets/products/default.jpg'}
                                           alt={product.name}
-                                          width={24}
-                                          height={24}
+                                          width={54}
+                                          height={54}
                                           className="object-cover rounded"
                                         />
                                       </div>
