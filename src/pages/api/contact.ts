@@ -241,9 +241,9 @@ async function sendContactEmail(data: ContactFormData & { timestamp: string }) {
               
               <div class="contact-info">
                 <h3>📞 Need immediate assistance?</h3>
-                <p><strong>Phone:</strong> +91-7000901447</p>
-                <p><strong>Email:</strong> Prabhatchaubey56@gmail.com</p>
-                <p><strong>WhatsApp:</strong> +91-7000901447</p>
+                <p><strong>Phone:</strong> +91-9425902891</p>
+                <p><strong>Email:</strong> dpenterprises2007@gmail.com</p>
+                <p><strong>WhatsApp:</strong> +91-9425902891</p>
               </div>
               
               <p>We serve across <strong>Madhya Pradesh, Chhattisgarh, and Vidharbha (Nagpur)</strong> with comprehensive industrial pumping solutions.</p>
@@ -504,7 +504,7 @@ Product enquiry - respond within 24 hours! ⚡`
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          phone: process.env.WHATSAPP_NUMBER || '917000901447',
+          phone: process.env.WHATSAPP_NUMBER || '919425902891',
           message: whatsappMessage
         })
       })
