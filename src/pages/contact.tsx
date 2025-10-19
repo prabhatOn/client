@@ -55,7 +55,7 @@ export default function ContactPage() {
       id: 3,
       name: "Regional Office - Raipur",
       type: "Regional Office", 
-      address: "Plot No. 45, Industrial Estate, Raipur (CG) 492001",
+      address: "Plot No. 45, Industrial Estate, Raipur (CG) 492001\nDM Tower, Raipur (CG) 493221",
       phone: "+91-9425902891",
       email: "dpenterprises2007@gmail.com",
       city: "Raipur",
@@ -612,12 +612,14 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-2 sm:space-y-3">
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed break-words">
-                      {office.address}
-                    </p>
-                  </div>
+                  {office.city !== 'Nagpur' && (
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed break-words">
+                        {office.address}
+                      </p>
+                    </div>
+                  )}
                   <div className="flex items-center gap-2 sm:gap-3">
                     <Phone className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-600 flex-shrink-0" />
                     <p className="text-gray-600 text-xs sm:text-sm">{office.phone}</p>
@@ -660,18 +662,27 @@ export default function ContactPage() {
               </div>
               
               <div className="h-[300px] sm:h-[400px] lg:h-[500px] w-full rounded-2xl overflow-hidden relative">
-                {/* Map Iframe */}
-                <iframe
-                  src={offices[selectedOffice].mapUrl}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="rounded-2xl"
-                  title={`Map of ${offices[selectedOffice].name}`}
-                ></iframe>
+                {/* Map Iframe - hide for Nagpur or when mapUrl missing */}
+                {offices[selectedOffice].city !== 'Nagpur' && offices[selectedOffice].mapUrl ? (
+                  <iframe
+                    src={offices[selectedOffice].mapUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="rounded-2xl"
+                    title={`Map of ${offices[selectedOffice].name}`}
+                  ></iframe>
+                ) : (
+                  <div className="h-full w-full flex items-center justify-center bg-gray-100 text-gray-500 rounded-2xl">
+                    <div className="text-center px-4">
+                      <MapPin className="w-8 h-8 mx-auto mb-2 text-gray-400" />
+                      <p className="text-sm sm:text-base">Map not available for this location</p>
+                    </div>
+                  </div>
+                )}
                 
                 {/* Fallback for map loading */}
                 <div className="absolute inset-0 bg-gray-200 flex items-center justify-center rounded-2xl opacity-0 hover:opacity-0 transition-opacity">
@@ -708,9 +719,11 @@ export default function ContactPage() {
                   <h3 className="font-bold mb-1 text-sm sm:text-base" style={{ color: '#11497b' }}>
                     {offices[selectedOffice].city}, {offices[selectedOffice].state}
                   </h3>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed break-words">
-                    {offices[selectedOffice].address}
-                  </p>
+                  {offices[selectedOffice].city !== 'Nagpur' && (
+                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed break-words">
+                      {offices[selectedOffice].address}
+                    </p>
+                  )}
                 </div>
               </div>
               
