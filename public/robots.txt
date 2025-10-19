@@ -1,0 +1,9 @@
+# robots.txt for DP Enterprises
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.dpenterprisesind.com/sitemap.xml
+
+# If you have private paths, disallow them below (example):
+# Disallow: /admin
