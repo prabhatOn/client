@@ -44,7 +44,7 @@ export default function ContactPage() {
       id: 3,
       name: "Regional Office - Raipur",
       type: "Regional Office", 
-      address: "Plot No. 45, Industrial Estate, Raipur (CG) 492001\nDM Tower, Raipur (CG) 493221",
+      address: "DM Tower, Raipur (CG) 493221",
       phone: "+91-9425902891",
       email: "dpenterprises2007@gmail.com",
       city: "Raipur",
