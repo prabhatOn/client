@@ -39,18 +39,7 @@ export default function ContactPage() {
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.234567890123!2d75.68456789012345!3d22.59876543210987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDM1JzU1LjYiTiA3NcKwNDEnMDQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
       description: "Our main headquarters serving Madhya Pradesh region"
     },
-    {
-      id: 2,
-      name: "Branch Office - Nagpur", 
-      type: "Branch Office",
-      address: "105, Shivshakti Complex, Katol Road, Nagpur (MH) 440013",
-      phone: "+91-9425902891",
-      email: "dpenterprises2007@gmail.com",
-      city: "Nagpur",
-      state: "Maharashtra",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.123456789012!2d79.08765432109876!3d21.14567890123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDgnNDQuNCJOIDc5wrAwNScxNS42IkU!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
-      description: "Serving Vidharbha region and eastern Maharashtra"
-    },
+    // Nagpur removed from contact page per request (map/address removed)
     {
       id: 3,
       name: "Regional Office - Raipur",
